@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component, useState } from "react";
+import styles from "./css/App.module.css";
 
-function App() {
+const App = () => {
+  const [item, setItem] = useState(1);
+  const incrementItem = () => setItem(item + 1);
+  const decrementItem = () => setItem(item - 1);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${styles.app}`}>
+      <div>
+        <h1>Hello {item}</h1>
+        <h2>Start editing to see some magic happen!(App)</h2>
+        <button onClick={incrementItem}>Increment</button>
+        <button onClick={decrementItem}>Decrement</button>
+      </div>
     </div>
   );
+};
+
+class AppUgly extends Component {
+  state = {
+    item: 1,
+  };
+
+  render() {
+    const { item } = this.state;
+    return (
+      <div className={`${styles.app}`}>
+        <div>
+          <h1>Hello {item}</h1>
+          <h2>Start editing to see some magic happen!(AppUgly)</h2>
+          <button onClick={this.incrementItem}>Increment</button>
+          <button onClick={this.decrementItem}>Decrement</button>
+        </div>
+      </div>
+    );
+  }
+  incrementItem = () => {
+    this.setState((state) => {
+      return {
+        item: state.item + 1,
+      };
+    });
+  };
+
+  decrementItem = () => {
+    this.setState((state) => {
+      return {
+        item: state.item - 1,
+      };
+    });
+  };
 }
 
-export default App;
+export default AppUgly;
