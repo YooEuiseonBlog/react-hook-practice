@@ -1,4 +1,4 @@
-import { createBrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Root = () => {
   return (
@@ -10,6 +10,15 @@ const Root = () => {
         </li>
         <li>
           <Link to={"/useInput"}>useInput</Link>
+        </li>
+        <li>
+          <Link to={"/useTabs"}>useTabs</Link>
+        </li>
+        <li>
+          <Link to={"/useEffect"}>useEffect</Link>
+        </li>
+        <li>
+          <Link to={"/useTitle"}>useTitle</Link>
         </li>
       </ul>
     </>
