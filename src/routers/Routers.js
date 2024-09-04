@@ -5,6 +5,7 @@ import UseInputHookPage from "../screens/UseInputHookPage";
 import UseTabsHookPage from "../screens/UseTabsHookPage";
 import UseEffectHookPage from "../screens/UseEffectHookPage";
 import UseTitleHookPage from "../screens/UseTitleHookPage";
+import UseClickHookPage from "../screens/UseClickHookPage";
 
 const routers = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const routers = createBrowserRouter([
   {
     path: "/useTitle",
     element: <UseTitleHookPage />,
+  },
+  {
+    path: "/useClick",
+    element: <UseClickHookPage />,
   },
 ]);
 
