@@ -6,6 +6,8 @@ import UseTabsHookPage from "../screens/UseTabsHookPage";
 import UseEffectHookPage from "../screens/UseEffectHookPage";
 import UseTitleHookPage from "../screens/UseTitleHookPage";
 import UseClickHookPage from "../screens/UseClickHookPage";
+import UsePreventLeaveHookPage from "../screens/UsePreventLeaveHookPage";
+import UseConfirmHookPage from "../screens/UseConfirmHookPage";
 
 const routers = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const routers = createBrowserRouter([
   {
     path: "/useClick",
     element: <UseClickHookPage />,
+  },
+  {
+    path: "/usePreventLeave",
+    element: <UsePreventLeaveHookPage />,
+  },
+  {
+    path: "/useConfirm",
+    element: <UseConfirmHookPage />,
   },
 ]);
 

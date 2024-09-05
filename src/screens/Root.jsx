@@ -23,6 +23,12 @@ const Root = () => {
         <li>
           <Link to={"/useClick"}>useClick</Link>
         </li>
+        <li>
+          <Link to={"/usePreventLeave"}>usePreventLeave</Link>
+        </li>
+        <li>
+          <Link to={"/useConfirm"}>useConfirm</Link>
+        </li>
       </ul>
     </>
   );
