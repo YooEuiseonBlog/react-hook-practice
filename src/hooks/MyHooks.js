@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 export const useTabs = (initialTab, allTabs) => {
   const [currentIndex, setCurrentIndex] = useState(initialTab);
   if (!allTabs || !Array.isArray(allTabs)) {
@@ -81,4 +83,24 @@ export const usePreventLeave = () => {
     window.removeEventListener("beforeunload", listener);
 
   return { enablePrevent, disablePrevent };
+};
+
+export const useBeforeLeave = (onBefore) => {
+  useEffect(() => {
+
+    if(typeof onBefore !== "function") {
+      return;
+    }
+    const handle = (event) => {
+      const {clientY} = event;
+
+      if(clientY <= 0) {
+        onBefore();
+      }
+      
+    };
+    
+    document.addEventListener("mouseleave", handle);
+    return () => document.removeEventListener("mouseleave", handle);
+  }, [onBefore]);
 };

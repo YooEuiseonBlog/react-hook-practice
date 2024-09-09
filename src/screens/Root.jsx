@@ -29,6 +29,9 @@ const Root = () => {
         <li>
           <Link to={"/useConfirm"}>useConfirm</Link>
         </li>
+        <li>
+          <Link to={"/useBeforeLeave"}>useBeforeLeave</Link>
+        </li>
       </ul>
     </>
   );
