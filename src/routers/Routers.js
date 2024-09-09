@@ -9,6 +9,8 @@ import UseClickHookPage from "../screens/UseClickHookPage";
 import UsePreventLeaveHookPage from "../screens/UsePreventLeaveHookPage";
 import UseConfirmHookPage from "../screens/UseConfirmHookPage";
 import UseBeforeLeaveHookPage from "../screens/UseBeforeLeaveHookPage";
+import UseFadeInHookPage from "../screens/UseFadeInHookPage";
+import UseNetworkHookPage from "../screens/UseNetworkHookPage";
 
 const routers = createBrowserRouter([
   {
@@ -54,7 +56,15 @@ const routers = createBrowserRouter([
   {
     path: "/useBeforeLeave",
     element: <UseBeforeLeaveHookPage />,
-  }
+  },
+  {
+    path: "/useFadeIn",
+    element: <UseFadeInHookPage />,
+  },
+  {
+    path: "/useNetwork",
+    element: <UseNetworkHookPage />,
+  },
 ]);
 
 export default routers;

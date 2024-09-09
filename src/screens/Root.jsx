@@ -32,6 +32,12 @@ const Root = () => {
         <li>
           <Link to={"/useBeforeLeave"}>useBeforeLeave</Link>
         </li>
+        <li>
+          <Link to={"/useFadeIn"}>useFadeIn</Link>
+        </li>
+        <li>
+          <Link to={"/useNetwork"}>useNetwork</Link>
+        </li>
       </ul>
     </>
   );
