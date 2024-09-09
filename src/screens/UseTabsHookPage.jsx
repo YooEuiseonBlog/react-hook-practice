@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styles from "../css/App.module.css";
 import styled from "styled-components";
+import { useTabs } from "../hooks/MyHooks";
 
 const content = [
   {
@@ -18,16 +18,6 @@ const Wrapper = styled.div`
   flex-direction: row;
 `;
 
-const useTabs = (initialTab, allTabs) => {
-  const [currentIndex, setCurrentIndex] = useState(initialTab);
-  if (!allTabs || !Array.isArray(allTabs)) {
-    return;
-  }
-  return {
-    currentItem: allTabs[currentIndex],
-    changeItem: setCurrentIndex,
-  };
-};
 
 const UseTabsHookPage = () => {
   const { currentItem, changeItem } = useTabs(0, content);
