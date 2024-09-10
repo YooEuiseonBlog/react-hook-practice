@@ -192,13 +192,21 @@ export const useFadeIn = (duration = 1, delay = 0) => {
 export const useNetwork = (onChange) => {
   const [status, setStatus] = useState(navigator.onLine); // 네트워크 상태 관리
 
-  const handleChange = useCallback(() => {
+  // const handleChange = useCallback(() => {
+  //   // onChange가 함수이면 네트워크 상태 변경 시 호출
+  //   if (typeof onChange === "function") {
+  //     onChange(navigator.onLine);
+  //   }
+  //   setStatus(navigator.onLine); // 네트워크 상태 업데이트
+  // }, [onChange]); // onChange가 변경될 때마다 handleChange 재정의
+
+  const handleChange = () => {
     // onChange가 함수이면 네트워크 상태 변경 시 호출
     if (typeof onChange === "function") {
       onChange(navigator.onLine);
     }
     setStatus(navigator.onLine); // 네트워크 상태 업데이트
-  }, [onChange]); // onChange가 변경될 때마다 handleChange 재정의
+  }; // onChange가 변경될 때마다 handleChange 재정의
 
   useEffect(() => {
     window.addEventListener("online", handleChange); // 온라인 상태 이벤트 추가
@@ -209,7 +217,76 @@ export const useNetwork = (onChange) => {
       window.removeEventListener("online", handleChange);
       window.removeEventListener("offline", handleChange);
     };
-  }, [handleChange]); // handleChange가 변경될 때마다 effect 재실행
+    // }, [handleChange]); // handleChange가 변경될 때마다 effect 재실행
+  }, []); // handleChange가 변경될 때마다 effect 재실행
 
   return status; // 네트워크 상태 반환
+};
+
+export const useScroll = () => {
+  const [state, setState] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const onScroll = (event) => {
+    setState({ y: window.scrollY, x: window.scrollX });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return state;
+};
+
+export const useFullScreen = (callback) => {
+  const element = useRef();
+  const runCb = (isFull) => {
+    if (typeof callback === "function") {
+      callback(isFull);
+    }
+  };
+  const triggerFull = () => {
+    // if (element.current) {
+    //   element.current.requestFullscreen();
+    //   if (typeof callback === "function") {
+    //     callback(true);
+    //   }
+    // }
+    if (element.current) {
+      if (element.current.requestFullscreen) {
+        element.current.requestFullscreen();
+      } else if (element.current.mozRequestFullScreen) {
+        element.current.mozRequestFullscreen();
+      } else if (element.current.webkitRequestFullscreen) {
+        element.current.webkitRequestFullscreen();
+      } else if (element.current.msRequestFullscreen) {
+        element.current.msRequestFullscreen();
+      }
+
+      runCb(true);
+    }
+  };
+
+  const exitFull = () => {
+    if (document.fullscreenElement) {
+      // document.exitFullscreen();
+      // if (typeof callback === "function") {
+      //   callback(false);
+      // }
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+
+      runCb(false);
+    }
+  };
+  return { element, triggerFull, exitFull };
 };

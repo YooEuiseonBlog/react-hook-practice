@@ -38,6 +38,12 @@ const Root = () => {
         <li>
           <Link to={"/useNetwork"}>useNetwork</Link>
         </li>
+        <li>
+          <Link to={"/useScroll"}>useScroll</Link>
+        </li>
+        <li>
+          <Link to={"/useFullScreen"}>useFullScreen</Link>
+        </li>
       </ul>
     </>
   );
