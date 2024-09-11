@@ -13,6 +13,7 @@ import UseFadeInHookPage from "../screens/UseFadeInHookPage";
 import UseNetworkHookPage from "../screens/UseNetworkHookPage";
 import UseScrollHookPage from "../screens/UseScrollHookPage";
 import UseFullScreenHookPage from "../screens/UseFullScreenHookPage";
+import UseNotificationHookPage from "../screens/UseNotificationHookPage";
 
 const routers = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const routers = createBrowserRouter([
   {
     path: "/useFullScreen",
     element: <UseFullScreenHookPage />,
+  },
+  {
+    path: "/useNotification",
+    element: <UseNotificationHookPage />,
   },
 ]);
 

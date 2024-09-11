@@ -44,6 +44,9 @@ const Root = () => {
         <li>
           <Link to={"/useFullScreen"}>useFullScreen</Link>
         </li>
+        <li>
+          <Link to={"/useNotification"}>useNotification</Link>
+        </li>
       </ul>
     </>
   );
