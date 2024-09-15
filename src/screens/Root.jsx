@@ -47,6 +47,9 @@ const Root = () => {
         <li>
           <Link to={"/useNotification"}>useNotification</Link>
         </li>
+        <li>
+          <Link to={"/useAxios"}>useAxios</Link>
+        </li>
       </ul>
     </>
   );

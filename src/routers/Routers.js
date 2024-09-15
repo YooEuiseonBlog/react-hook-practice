@@ -14,6 +14,7 @@ import UseNetworkHookPage from "../screens/UseNetworkHookPage";
 import UseScrollHookPage from "../screens/UseScrollHookPage";
 import UseFullScreenHookPage from "../screens/UseFullScreenHookPage";
 import UseNotificationHookPage from "../screens/UseNotificationHookPage";
+import UseAxiosHookPage from "../screens/UseAxiosHookPage";
 
 const routers = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const routers = createBrowserRouter([
   {
     path: "/useNotification",
     element: <UseNotificationHookPage />,
+  },
+  {
+    path: "/useAxios",
+    element: <UseAxiosHookPage />,
   },
 ]);
 
